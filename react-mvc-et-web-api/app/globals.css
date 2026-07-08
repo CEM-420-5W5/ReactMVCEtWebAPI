@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.borderedZone{
+  border-color: black;
+  border-radius: 1px;
+  border-style: solid;
+  border-width: 2px;
+  margin:8px;
+  padding: 8px;
+  font-size: large;
+}
