@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import BlueButton from "./blue-button";
+import { Button } from "@/components/ui/button"
 
 export default function LoginView() {
 
@@ -56,8 +56,8 @@ export default function LoginView() {
                 <div className="mb-2">
                     Qui êtes-vous?
                 </div>
-                <BlueButton onClick={enregistrer}>Enregistrer</BlueButton>
-                <BlueButton onClick={login}>Login</BlueButton>
+                <Button variant="secondary" onClick={enregistrer}>Enregistrer</Button>
+                <Button onClick={login}>Login</Button>
             </div>);
         }
         else{
@@ -65,7 +65,7 @@ export default function LoginView() {
                 <div className="mb-2">
                     Bienvenue!
                 </div>
-                <BlueButton onClick={logout}>Logout</BlueButton>
+                <Button onClick={logout}>Logout</Button>
             </div>);
         }
     }

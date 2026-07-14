@@ -4,10 +4,14 @@ import axios from "axios";
 import { useState } from "react";
 import LoginView from "@/app/_components/login-view";
 import { authenticatedRequest } from "./interceptor";
-import BlueButton from "./_components/blue-button";
-import RedButton from "./_components/red-button";
 
+import { Button } from "@/components/ui/button"
 
+import {
+  Field,
+  FieldLabel,
+} from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
 
 export default function Home() {
   const [resultat, setResultat] = useState("");
@@ -44,8 +48,8 @@ export default function Home() {
       
       <div className="borderedZone">
         <div>
-          <BlueButton onClick={testPublique}>Test Publique</BlueButton>
-          <RedButton onClick={testPrive}>Test Privé</RedButton>
+          <Button onClick={testPublique}>Test Publique</Button>
+          <Button variant="destructive" onClick={testPrive}>Test Privé</Button>
         </div>
         <div className="mt-2">
           Résultat: {resultat}
@@ -54,11 +58,18 @@ export default function Home() {
       
 
       <div className="borderedZone">
-        <h4>Ajout de data</h4>
-        <div>
-          <input className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block px-3 py-2.5 shadow-xs placeholder:text-body m-2" value={testDataName} onChange={(e) => setTestDataName(e.target.value)} type="text" name="newTestDataName"/>
-        </div>
-        <BlueButton onClick={ajouter}>Ajouter</BlueButton>
+        <Field className="mb-2">
+          <FieldLabel htmlFor="input-field-data-name">Ajout de data</FieldLabel>
+          <Input
+            id="input-field-data-name"
+            type="text"
+            value={testDataName}
+            onChange={(e) => setTestDataName(e.target.value)}
+            placeholder="N'importe quel texte"
+          />
+        </Field>
+
+        <Button onClick={ajouter}>Ajouter</Button>
       </div>
     </div>
   );
